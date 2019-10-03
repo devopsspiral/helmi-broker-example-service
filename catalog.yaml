@@ -2,7 +2,7 @@
 # this is an example chart, showing the general structure of a catalog file
 service:
   _id: d3920b2c-7caa-4795-b1f9-c985bb80b77d
-  _name: grafana
+  _name: grafana-helmi
   description: "Grafana"
   chart: stable/grafana
   chart-version: 3.8.11
@@ -59,6 +59,7 @@ service:
           memory: 1280Mi
 ---
 chart-values:
+  adminPassword: {{ randAlphaNum 32 | b64enc | quote }}
   ingress:
     enabled: true
     hosts: 
